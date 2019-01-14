@@ -304,19 +304,19 @@ input::placeholder {
   z-index: -200;
 }
 
-/* .contact-icon::before {
+.contact-icon::before {
   content: "";
   display: block;
   position: absolute;
   height: 6.2rem;
-  left: 31.55rem;
+  /* left: 31.55rem; */
   top: -.57rem;
   width: 6.2rem;
   background: var( --c-primary );
   opacity: .2;
   z-index: -200;
   border-radius: 50%;
-} */
+}
 
 .border-gray {
   border-color: rgba( 0, 0, 0, .15 ) !important;
