@@ -291,6 +291,19 @@ input::placeholder {
   width: 5rem;
 }
 
+.foo::after {
+  content: "";
+  display: block;
+  position: absolute;
+  background: var( --c-primary );
+  width: 9rem;
+  height: 9rem;
+  top: .15rem;
+  left: -1.43rem;
+  border-radius: 50%;
+  z-index: -200;
+}
+
 /* .contact-icon::before {
   content: "";
   display: block;
@@ -540,6 +553,14 @@ input::placeholder {
 }
 
 @media ( max-width: 480px ) {
+
+  .foo::after {
+    top: -.4rem;
+  }
+
+  .foo {
+    opacity: 0;
+  }
 
   /* .input-480media {
     width: 100%;
