@@ -455,6 +455,21 @@ input::placeholder {
   grid-column: 7 / 13;
 }
 
+.list-services {
+  line-height: 2.55;
+  padding-left: 0;
+}
+
+.list-styling-bullets li::before {
+  content: "";
+  display: inline-block;
+  width: .47rem;
+  height: .47rem;
+  margin-right: 3px;
+  background: var( --c-primary );
+  border-radius: 50%;
+}
+
 /* Media queries */
 @media (min-width: 1200px) {
   /* .border-right-lg-1 {
@@ -476,7 +491,7 @@ input::placeholder {
   .s-solutions {
     grid-template-rows: repeat( 2, 1fr );
   }
-  
+
   .s-solutions__descrip {
     grid-column: 1 / 13;
   }
