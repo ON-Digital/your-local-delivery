@@ -26,7 +26,7 @@ jQuery( document ).ready( function() {
      $('html, body').animate({
 
        scrollTop: $("#s_contact").offset().top
-     }, 1000);
+      }, 1000);
 
    } );
 
