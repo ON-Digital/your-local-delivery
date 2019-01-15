@@ -587,6 +587,10 @@ input::placeholder {
 
 @media ( max-width: 480px ) {
 
+  .background-no-repeat-cover {
+    background-position: right center;
+  }
+
   .foo::after {
     top: -.4rem;
   }
