@@ -1,0 +1,554 @@
+/*
+Theme Name: Local Delivery
+Theme URI: https://github.com/ON-Digital/your-local-delivery/wp-theme
+Description: A WordPress theme for Your Local Delivery
+Author: On Digital Agency
+Author URI: https://ondigital.co
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: translation-ready, threaded-comments, theme-options, sticky-post, blog, featured-images, custom-logo, custom-menu, custom-colors, right-sidebar, footer-widgets, three-columns, rtl-language-support
+Text Domain: ldv
+*/
+
+/* General */
+
+body {
+  --c-primary: #93DD00;
+  font-family: 'Lato', sans-serif !important;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 900;
+}
+
+h2 {
+  font-size: 1.85rem;
+}
+
+h3 {
+  font-size: 1.27rem;
+}
+
+/* Utilities */
+
+.font-semibold {
+  font-weight: 700;
+
+}
+
+.h-min-content {
+  height: min-content;
+}
+
+.h-25rem {
+  height: 25rem;
+}
+
+.whole-12cols {
+  grid-template-columns: repeat( 12, 1fr );
+}
+
+.border-light {
+  border-color: rgba(0, 0, 0, 0.23) !important;
+}
+
+.bg-dark-layer {
+   background-color: rgba( 0, 0, 0, .5 );
+   background-blend-mode: multiply;
+}
+
+.bg-light-layer {
+  background-color: rgba( 255, 255, 255, .7 );
+  background-blend-mode: multiply;
+
+}
+
+.z-index200 {
+  z-index: var( --z-index-third );
+}
+
+.grid-wrp {
+  display: grid !important;
+}
+
+.grid-wrp-inline {
+  display: inline-grid;
+}
+
+.outline-0-onfocus:focus {
+  outline: 0 !important;
+}
+
+.background-no-repeat-cover {
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center center;
+}
+
+.bg-attachment-fixed {
+  background-attachment: fixed !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.overflow-hidden {
+  overflow-x: hidden !important;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.position-absolute {
+  position: absolute !important;
+}
+
+.position-fixed {
+  position: fixed;
+}
+
+.h-100vh {
+  height: 100vh;
+}
+
+.box-shadow {
+  box-shadow: 0 0 8px rgba(0, 0, 0, .3);
+}
+
+.font-uppercase {
+  text-transform: uppercase;
+}
+
+.flip {
+  transform: scale(-1);
+}
+
+.container-mg-t {
+  margin-top: 8.5rem;
+}
+
+.font-grow {
+  font-size: 1.5rem !important;
+}
+
+.font-bold {
+  font-weight: 600;
+}
+
+.transition {
+  transition: all 270ms ease;
+}
+
+.font-3rem {
+  font-size: 3rem !important;
+}
+
+.vertical-align-super {
+  vertical-align: super;
+}
+
+.justify-self-start {
+  justify-self: start;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.align-self-center {
+  align-self: center;
+}
+
+.justify-self-end {
+  justify-self: end;
+}
+
+.justify-items-center {
+  justify-items: center;
+}
+
+.justify-items-end {
+  justify-items: end;
+}
+
+.justify-content-center {
+  justify-content: center !important;
+}
+
+.justify-self-center {
+  justify-self: center !important;
+}
+
+.border-primary {
+  border-color: var(--c-primary) !important;
+}
+
+.text-primary {
+  color: var( --c-primary ) !important;
+}
+
+.text-shadow {
+  text-shadow: 0 0 6px rgba( 0, 0, 0, .5 );
+}
+
+.border-wide {
+  border-width: 3px !important;
+}
+
+.bg-image-height {
+  height: 27rem;
+}
+
+.btn-primary--m {
+  border-radius: 20px;
+  min-height: 50px;
+  width: 195px;
+}
+
+.grid-12cols {
+  grid-column: 1 / 13;
+}
+
+.s-how-to__box {
+  width: 6.8rem;
+  height: 6.8rem;
+}
+
+.s-home__descrip {
+  font-size: 18px;
+}
+
+.s-our-courier__subti {
+  font-size: 26px;
+}
+
+.bg-gray {
+  background-color: #F7F7F7 !important;
+}
+
+.text-gray {
+  color: #7F7F7F !important;
+}
+
+.btn-primary {
+  background-color: var( --c-primary );
+  border-color: var( --c-primary );
+}
+
+.bg-primary {
+  background-color: var( --c-primary ) !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var( --c-primary ) !important;
+  border-color: var( --c-primary ) !important;
+  color: #fff;
+}
+
+.bg-secondary--darker {
+  background: #051526;
+}
+
+input::placeholder {
+  font-size: .94rem;
+}
+
+.s-services__icon {
+  vertical-align: text-bottom;
+}
+
+.s-about__img {
+  grid-column: 1 / 7;
+}
+
+.s-about__txt {
+  grid-column: 7 / 13;
+}
+
+.form-control--m {
+  border: 1.5px solid rgba( 0, 0, 0, 0.25 );
+}
+
+.courier-amount {
+  font-weight: 900;
+  font-size: 76px;
+}
+
+.contact-icon {
+  height: 5rem;
+  width: 5rem;
+}
+
+.foo::after {
+  content: "";
+  display: block;
+  position: absolute;
+  background: var( --c-primary );
+  width: 9rem;
+  height: 9rem;
+  top: .15rem;
+  left: -1.43rem;
+  border-radius: 50%;
+  z-index: -200;
+}
+
+/* .contact-icon::before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 6.2rem;
+  top: -.57rem;
+  width: 6.2rem;
+  background: var( --c-primary );
+  opacity: .2;
+  z-index: -200;
+  border-radius: 50%;
+} */
+
+.border-gray {
+  border-color: rgba( 0, 0, 0, .15 ) !important;
+}
+
+.bg-secondary {
+  background: #0A2542 !important;
+}
+
+.ldv-footer__logo {
+  grid-column: 2 / 5;
+}
+
+.ldv-footer__contact {
+  grid-column: 5 / 8
+}
+
+.ldv_footer__social {
+  grid-column: 8 / 13;
+}
+
+.icon-size {
+  font-size: 1.65rem;
+}
+
+.bg-secondary-darker {
+  background-color: #051526;
+}
+
+.header-service-page {
+  height: 6.5rem;
+}
+
+.bg-primary--darker {
+  background: #76B200;
+}
+
+.s-solutions__descrip {
+  grid-column: 1 / 8;
+
+}
+
+.s-solutions__img {
+  grid-column: 8 / 13;
+}
+
+.services-icon {
+  width: 6rem;
+  height: 6rem;
+  transform: translateY(1.75rem);
+  position: relative;
+  z-index: 300;
+}
+
+.services-icon::before {
+  content: "";
+  display: block;
+  position: absolute;
+  border: 1.55px solid white;
+  background: transparent;
+  top: .75rem;
+  left: .7rem;
+  width: 4.55rem;
+  height: 4.55rem;
+  border-radius: 50%;
+  z-index: 9999;
+}
+
+.form-control:focus {
+  border-color: var( --c-primary );
+}
+
+.ldv-menu-icon {
+  height: 2.5px;
+  width: 2.75rem;
+  margin-top: -1.55rem;
+  z-index: 2000;
+}
+
+.ldv-menu-icon::before {
+  content: "";
+  display: inline-block;
+  background: #fff;
+  height: 2.5px;
+  width: 2.75rem;
+}
+
+.ldv-menu-icon::after {
+  content: "";
+  display: inline-block;
+  background: #fff;
+  height: 2.5px;
+  width: 2.75rem;
+  transform: translateY(-.55rem);
+}
+
+.ldv-menu-icon-wrp {
+  z-index: 9999;
+  margin-top: 5.5rem;
+}
+
+.s-solutions-specific-service-img {
+  grid-column: 1 / 7;
+  background-image: url( img/business-services-bg.jpg );
+}
+
+.s-solutions-specific-service-descrip {
+  grid-column: 7 / 13;
+}
+
+.list-services {
+  line-height: 2.55;
+  padding-left: 0;
+}
+
+.list-styling-bullets li::before {
+  content: "";
+  display: inline-block;
+  width: .47rem;
+  height: .47rem;
+  margin-right: 3px;
+  background: var( --c-primary );
+  border-radius: 50%;
+}
+
+/* Media queries */
+@media (min-width: 1200px) {
+
+  .border-right-services {
+    border-right-width: 1px;
+  }
+
+  .border-bottom-xl-0 {
+    border-bottom-width: 0 !important;
+  }
+
+}
+
+@media (max-width: 1200px) {
+
+  .s-solutions {
+    grid-template-rows: repeat( 2, 1fr );
+  }
+
+  .s-solutions__descrip {
+    grid-column: 1 / 13;
+  }
+
+  .s-solutions__img {
+    grid-column: 1 / 13;
+  }
+
+  .s-solutions-specific-service-img {
+    grid-column: 1 / 13;
+    background-image: url( img/business-services-bg.jpg );
+  }
+
+  .s-solutions-specific-service-descrip {
+    grid-column: 1 / 13;
+  }
+
+  .border-right-services {
+    border-right-width: 0 !important;
+  }
+
+}
+
+@media ( max-width: 992px ) {
+
+  .ldv-main-menu-js {
+    transform: translateY(-75rem);
+    opacity: 0;
+  }
+
+  .ldv-main-menu {
+    position: absolute;
+    background: var( --c-primary );
+    height: 100vh;
+    top: -.25rem;
+    width: 100%;
+    z-index: 800;
+  }
+
+  .s-about__img {
+    grid-column: 1 / 13;
+  }
+
+  .s-about__txt {
+    grid-column: 1 / 13;
+
+  }
+
+  .ldv-footer__logo {
+    grid-column: 1 / 6;
+  }
+
+  .ldv-footer__contact {
+    grid-column: 6 / 13;
+  }
+
+  .ldv_footer__social {
+    grid-column: 1 / 13;
+  }
+
+}
+
+@media ( max-width: 576px ) {
+
+  .h1--fntsize-movile {
+    font-size: 2.25rem !important;
+  }
+
+  .ldv-footer__logo {
+    grid-column: 3 / 9 !important;
+  }
+
+  .ldv-footer__contact {
+    grid-column: 1 / 13 !important;
+  }
+
+}
+
+@media ( max-width: 480px ) {
+
+  .background-no-repeat-cover {
+    background-position: right center;
+  }
+
+  .foo::after {
+    top: -.4rem;
+  }
+
+  .foo {
+    opacity: 0;
+  }
+
+}
