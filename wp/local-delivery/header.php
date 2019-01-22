@@ -57,79 +57,81 @@
                *
                * @var array $location
                */
-              $location = get_nav_menu_locations();
+              // $location = get_nav_menu_locations();
 
               /**
                * Store the menu id of the 'main_menu' location
                *
                * @var integer $menu_id
                */
-              $menu_id = isset( $location['ldv_main_menu'] ) ? $location['ldv_main_menu'] : false;
+              // $menu_id = isset( $location['ldv_main_menu'] ) ? $location['ldv_main_menu'] : false;
 
-              if ( $menu_id ) {
+              // if ( $menu_id ) {
 
                 /**
                  * Menu object of 'main_menu'
                  *
                  * @var object $menu_object
                  */
-                $menu_object = wp_get_nav_menu_object( $menu_id );
+                // $menu_object = wp_get_nav_menu_object( $menu_id );
 
                 /**
                  * An array of menu items objects
                  *
                  * @var array $array_menu_items
                  */
-                $array_menu_items = wp_get_nav_menu_items( $menu_object->term_id );
+                // $array_menu_items = wp_get_nav_menu_items( $menu_object->term_id );
 
-                foreach ( $array_menu_items as $key => $menu_item ) {
+                // foreach ( $array_menu_items as $key => $menu_item ) {
 
                   /**
                    * Store the menu item title
                    *
                    * @var string $title
                    */
-                  $title = $menu_item->title;
+                  // $title = $menu_item->title;
 
                   /**
                    * Store the menu item url
                    *
                    * @var string $url
                    */
-                  $url = $menu_item->url;
+                  // $url = $menu_item->url;
 
-                  $mr_right_end = end( $array_menu_items ) ? 'mr-lg-4' : '';
+                  // $mr_right_end = end( $array_menu_items ) ? 'mr-lg-4' : '';
 
-                  echo
-                    '<li class="d-block w-100 text-center d-lg-inline ml-lg-5 font-semibold mt-5 mt-lg-0">
-                      <a href="' . esc_url( $url ) . '" class="text-dark">' .
+                  // echo
+                    // '<li class="d-block w-100 text-center d-lg-inline ml-lg-5 font-semibold mt-5 mt-lg-0">
+                      // <a href="' . esc_url( $url ) . '" class="text-dark">' .
 
-                      esc_html( $title ) .
+                      // esc_html( $title ) .
 
-                      '</a>
-                    </li>';
+                      // '</a>
+                    // </li>';
 
-                }
+                // }
 
-              }
+              // }
+
+              $services_pg = get_option( 'ldv_services_pg' );
 
                  ?>
 
-              <!-- <li class="d-block w-100 text-center d-lg-inline ml-lg-5 font-semibold mt-5 mt-lg-0">
-                <a href="https://on-digital.github.io/your-local-delivery/" class="text-dark">Home</a>
+              <li class="d-block w-100 text-center d-lg-inline ml-lg-5 font-semibold mt-5 mt-lg-0">
+                <a href="<?php echo esc_url( $frontpage_link ); ?>" class="text-dark">Home</a>
               </li>
 
               <li class="d-block d-lg-inline ml-lg-5 font-semibold mt-4 mt-lg-0 text-center">
-                <a href="https://on-digital.github.io/your-local-delivery/index.html#s_about" class="text-dark" id="ldv_about_link">About</a>
+                <a href="<?php echo esc_url( $frontpage_link ); ?>#s_about" class="text-dark" id="ldv_about_link">About</a>
               </li>
 
               <li class="d-block d-lg-inline ml-lg-5 font-semibold mt-4 mt-lg-0 text-center">
-                <a href="https://on-digital.github.io/your-local-delivery/services-page.html" class="text-dark">Services</a>
+                <a href="<?php echo esc_url( get_the_permalink( $services_pg ) ); ?>" class="text-dark">Services</a>
               </li>
 
               <li class="d-block d-lg-inline ml-lg-5 font-semibold mt-4 mt-lg-0 text-center">
-                <a href="https://on-digital.github.io/your-local-delivery/index.html#s_contact" class="text-dark" id="ldv_contact_link">Get Started</a>
-              </li> -->
+                <a href="<?php echo esc_url( $frontpage_link ); ?>#s_contact" class="text-dark" id="ldv_contact_link">Get Started</a>
+              </li>
             </ul>
           </div>
         </div>

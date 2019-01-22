@@ -1,4 +1,4 @@
-jQuery( document ).ready( function() {
+jQuery( document ).ready( function( $ ) {
 
   $( '#ldv_main_menu_btn' ).on( 'click', function() {
 
