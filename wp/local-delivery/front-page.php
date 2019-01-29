@@ -3,7 +3,7 @@
   <div class="s-home bg-image-height background-no-repeat-cover grid-wrp align-items-center bg-dark-layer">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-6">
+        <div class="col-10 col-sm-8 ml-auto mr-auto col-xl-6">
 
            <?php
           $home_page_option = get_option( 'ldv_home_pg' );
@@ -28,7 +28,7 @@
             </p>
         </div>
 
-        <div class="col-6">
+        <div class="col-10 col-sm-8 ml-auto mr-auto col-xl-6">
 
             <?php do_action( 'ldv_delivery_details_form' ); ?>
 
