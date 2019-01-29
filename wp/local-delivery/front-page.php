@@ -1,28 +1,39 @@
 <?php get_header(); ?>
 
   <div class="s-home bg-image-height background-no-repeat-cover grid-wrp align-items-center bg-dark-layer">
-    <div>
-      <?php
-        $home_page_option = get_option( 'ldv_home_pg' );
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-6">
 
-      ?>
-      <h1 class="text-center text-white font-3rem font-uppercase h1--fntsize-movile">
-        <?php
-          echo esc_html( get_the_title() );
-        ?>
-      </h1>
+           <?php
+          $home_page_option = get_option( 'ldv_home_pg' );
 
-      <p class="text-center text-white font-semibold s-home__descrip">
-        <?php
-          echo esc_html( get_the_excerpt() );
-        ?>
-      </p>
+            ?>
+            <h1 class="text-center text-white font-3rem font-uppercase h1--fntsize-movile">
+              <?php
+                echo esc_html( get_the_title() );
+              ?>
+            </h1>
 
-      <p class="text-center w-100 mt-4">
-        <a href="" class="btn btn-primary p-3 btn-primary--m font-semibold">
-          <?php _e( 'GET STARTED', 'ldv' ); ?>
-        </a>
-      </p>
+            <p class="text-center text-white font-semibold s-home__descrip">
+              <?php
+                echo esc_html( get_the_excerpt() );
+              ?>
+            </p>
+
+            <p class="text-center w-100 mt-4">
+              <a href="" class="btn btn-primary p-3 btn-primary--m font-semibold">
+                <?php _e( 'GET STARTED', 'ldv' ); ?>
+              </a>
+            </p>
+        </div>
+
+        <div class="col-6">
+
+            <?php do_action( 'ldv_delivery_details_form' ); ?>
+
+        </div>
+      </div>
     </div>
   </div>
 

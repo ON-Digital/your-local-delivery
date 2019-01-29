@@ -20,6 +20,119 @@
   // Set content width
   add_action( 'after_setup_theme', 'ldv_content_width', 0 );
 
+  add_action( 'ldv_delivery_details_form', 'ldv_delivery_details_form' );
+
+  add_filter( 'ldv_delivery_details_form_filter', 'ldv_delivery_details_form_filter' );
+
+  function ldv_delivery_details_form()
+  {
+    ?>
+    <form action="<?php echo esc_url( $_SERVER['REQUEST_URI'] ); ?>" method="post" class="row no-gutters">
+      <?php wp_nonce_field( 'ldv_form_delivery_action', 'ldv_form_delivery_nonce' ); ?>
+
+      <div class="col-8 ml-auto mr-auto d-table">
+        <label class="d-table-cell">
+          <input type="text" class="form-control form-control-lg form-control--m rounded-0" placeholder="First and last name" name="ldv_name_delivery_inp" id="ldv_name_delivery_inp" required>
+        </label>
+      </div>
+
+      <div class="col-8 ml-auto mr-auto d-table">
+        <label class="d-table-cell">
+          <input type="text" class="form-control form-control-lg form-control--m" placeholder="Email" id="ldv_email_delivery_inp" name="ldv_email_delivery_inp" required>
+        </label>
+      </div>
+
+      <div class="col-8 ml-auto mr-auto d-table">
+        <label class="d-table-cell">
+          <input type="text" class="form-control form-control-lg form-control--m" placeholder="Phone Number" id="ldv_phone_delivery_inp" name="ldv_phone_delivery_inp" required>
+        </label>
+      </div>
+
+      <div class="col-8 ml-auto mr-auto d-table">
+        <label class="d-table-cell">
+          <input type="text" class="form-control form-control-lg form-control--m" placeholder="Origin address" id="ldv_address1_inp" name="ldv_address1_inp" required>
+        </label>
+      </div>
+
+      <div class="col-8 ml-auto mr-auto d-table">
+        <label class="d-table-cell">
+          <input type="text" class="form-control form-control-lg form-control--m" placeholder="Destiny address" id="ldv_address2_inp" name="ldv_address2_inp" required>
+        </label>
+      </div>
+
+      <div class="col-8 d-table ml-auto mr-auto">
+        <input type="submit" class="btn btn-primary btn-primary--m form-control mt-1 w-100 font-semibold font-uppercase" value="SUBMIT" id="ldv_delivery_submit_btn" name="ldv_delivery_submit_btn">
+      </div>
+    </form>
+    <?php
+
+    // if data is submitted we call the filter callback that handle that data, send the mail and display a message that indicate the status of the operation
+     if ( isset( $_POST['ldv_delivery_submit_btn'] ) )
+     {
+       $name_user = isset( $_POST['ldv_name_delivery_inp'] ) ? $_POST['ldv_name_delivery_inp'] : '';
+
+       $email_user = isset( $_POST['ldv_email_delivery_inp'] ) ? $_POST['ldv_email_delivery_inp'] : '';
+
+       $number_user = isset( $_POST['ldv_phone_delivery_inp'] ) ? $_POST['ldv_phone_delivery_inp'] : '';
+
+       $address_1 = isset( $_POST['ldv_address1_inp'] ) ? $_POST['ldv_address1_inp'] : '';
+
+       $address_2 = isset( $_POST['ldv_address2_inp'] ) ? $_POST['ldv_address2_inp'] : '';
+
+       if ( ! empty( $name_user ) && ! empty( $email_user ) && ! empty( $number_user ) && ! empty ( $address_1 ) && ! empty ( $address_2 ) ) {
+
+         echo apply_filters( 'ldv_delivery_details_form_filter', ldv_delivery_details_form_filter( $name_user, $email_user, $number_user, $address_1, $address_2 ) );
+
+       } else {
+
+         $die_message = '<h3 class="text-center mt-3 text-primary">' . __( 'Sorry, but all fields are required', 'ldv' ) . '</h3>';
+
+         wp_die( $die_message );
+       }
+     }
+  }
+
+  function ldv_delivery_details_form_filter( $name, $email, $number, $address_1, $address_2 )
+  {
+    $invalid_nonce = '<h3 class="text-center">' . __( 'An invalid action has happened.', 'ldv' ) . '</h3>';
+
+    // if there is not a valid value for the nonce we return an error message
+    if ( ! isset( $_POST['ldv_form_delivery_nonce'] ) ) {
+      return $invalid_nonce;
+    }
+
+    if ( ! wp_verify_nonce( $_POST['ldv_form_delivery_nonce'], 'ldv_form_delivery_action' ) ) {
+      return $invalid_nonce;
+    }
+
+    // if is all good we sanitize data and send the email
+    $name = sanitize_text_field( $name );
+
+    $email = is_email( $email ) ? sanitize_email( $email ) : '';
+
+    $number = sanitize_text_field( $number );
+
+    $address_1 = sanitize_text_field( $address_1 );
+
+    $address_2 = sanitize_text_field( $address_2 );
+
+    $message = __( 'Origin address: ', 'ldv' ) .   $address_1 . __( '. Origin destiny: ', 'ldv' ) . $address_2;
+
+    $subject = __( 'New delivery petition', 'ldv' );
+
+    $to = get_option( 'admin_email' ) ? get_option( 'admin_email' ) : 'robertoeat91@gmail.com';
+    $headers = __( 'From: ', 'ldv' ) . $name . '(' . $number . ')' . ' <' . $email . '>';
+    $mail = wp_mail( $to, $subject, $message, $headers );
+
+    // Return a message with the status of the operation, success or failure
+    if ( $mail ) {
+        return apply_filters( 'ldv_delivery_details_form', '<h3 class="text-center mt-4 text-primary">' . __( "Your message was successfully sended" , 'ldv' ) . '</h3>' );
+
+    } else {
+      return apply_filters( 'ldv_delivery_details_form', '<h3 class="text-center mt-4 text-primary">' . __( 'An unexpected error happened', 'ldv' ) . '</h3>' );
+    }
+  }
+
   function ldv_custom_logo_size( $width = 20, $height = 40, $flex_height = true, $flex_width = true ) {
    // Add custom logo feature support
    $args =
