@@ -3,7 +3,7 @@
   <div class="s-home bg-image-height background-no-repeat-cover grid-wrp align-items-center bg-dark-layer">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-10 col-sm-8 ml-auto mr-auto col-xl-6">
+        <div class="col-10 col-sm-8 ml-auto mr-auto col-xl-6 pt-5">
 
            <?php
           $home_page_option = get_option( 'ldv_home_pg' );
@@ -15,17 +15,17 @@
               ?>
             </h1>
 
-            <p class="text-center text-white font-semibold s-home__descrip">
+            <p class="text-center text-white font-semibold s-home__descrip d-none d-xl-block">
               <?php
                 echo esc_html( get_the_excerpt() );
               ?>
             </p>
 
-            <p class="text-center w-100 mt-4">
+            <!-- <p class="text-center w-100 mt-4">
               <a href="" class="btn btn-primary p-3 btn-primary--m font-semibold">
-                <?php _e( 'GET STARTED', 'ldv' ); ?>
+                <?php #_e( 'GET STARTED', 'ldv' ); ?>
               </a>
-            </p>
+            </p> -->
         </div>
 
         <div class="col-10 col-sm-8 ml-auto mr-auto col-xl-6">
